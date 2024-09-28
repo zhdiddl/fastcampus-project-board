@@ -52,11 +52,25 @@ public class ArticleComment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ArticleComment that)) return false;
-        return id != null && id.equals(that.id);
+
+        if (this.getId() == null) {
+            return Objects.equals(this.getArticle(), that.getArticle()) &&
+                    Objects.equals(this.getContent(), that.getContent()) &&
+                    Objects.equals(this.getCreatedAt(), that.getCreatedAt()) &&
+                    Objects.equals(this.getCreatedBy(), that.getCreatedBy()) &&
+                    Objects.equals(this.getModifiedAt(), that.getModifiedAt()) &&
+                    Objects.equals(this.getModifiedBy(), that.getModifiedBy());
+        }
+
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        if (getId() == null) {
+            return Objects.hash(getArticle(), getContent(), getCreatedAt(), getCreatedBy(), getModifiedAt(), getModifiedBy());
+        }
+
+        return Objects.hash(getId());
     }
 }
