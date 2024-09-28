@@ -1,5 +1,4 @@
 package com.fastcampus.projectboard.repository;
-
 import com.fastcampus.projectboard.config.JpaConfig;
 import com.fastcampus.projectboard.domain.Article;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("[DB] JPA 연결 테스트")
 class JpaRepositoryTest {
 
-    @Nested
+    @Nested // 테스트 클래스 내부에 생성한 두 개의 DB 테스트 클래스를 구분
     @DisplayName("인-메모리 DB 테스트")
     class InMemoryDBTest extends DBTest {
 
@@ -32,7 +31,7 @@ class JpaRepositoryTest {
 
     @Nested
     @DisplayName("실제 DB 테스트")
-    @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+    @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // 실제 DB를 사용하도록 설정
     class ActualDBTest extends DBTest {
 
         public ActualDBTest(
@@ -118,6 +117,7 @@ class JpaRepositoryTest {
             assertThat(articleRepository.count()).isEqualTo(previousArticleCount - 1);
             assertThat(articleCommentRepository.count()).isEqualTo(previousArticleCommentCount - deletedCommentsSize);
         }
+
     }
 
 }
