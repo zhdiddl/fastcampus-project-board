@@ -1,4 +1,5 @@
 package com.fastcampus.projectboard.repository;
+
 import com.fastcampus.projectboard.config.JpaConfig;
 import com.fastcampus.projectboard.domain.Article;
 import org.junit.jupiter.api.DisplayName;

@@ -64,9 +64,7 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article that)) return false;
 
-        if (this.getId() != null) {
-            return Objects.equals(this.getId(), that.getId());
-        } else {
+        if (this.getId() == null) {
             return Objects.equals(this.getTitle(), that.getTitle()) &&
                     Objects.equals(this.getContent(), that.getContent()) &&
                     Objects.equals(this.getHashtag(), that.getHashtag()) &&
@@ -75,14 +73,16 @@ public class Article {
                     Objects.equals(this.getModifiedAt(), that.getModifiedAt()) &&
                     Objects.equals(this.getModifiedBy(), that.getModifiedBy());
         }
+
+        return Objects.equals(this.getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
-        if (this.getId() != null) {
-            return Objects.hash(getId());
-        } else {
+        if (this.getId() == null) {
             return Objects.hash(getTitle(), getContent(), getHashtag(), getCreatedAt(), getCreatedBy(), getModifiedAt(), getModifiedBy());
         }
+
+        return Objects.hash(getId());
     }
 }
