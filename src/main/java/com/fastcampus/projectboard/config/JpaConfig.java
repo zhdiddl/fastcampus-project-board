@@ -13,6 +13,6 @@ public class JpaConfig {
 
     @Bean
     public AuditorAware<String> auditorAware() {
-        return () -> Optional.of("authenticated user"); //TODO: Spring Security 인증 기능 추가되면 수정 필요
+        return () -> Optional.of("코양이"); //TODO: Spring Security 인증 기능 추가되면 수정 필요
     }
 }
