@@ -61,13 +61,28 @@ public class Article {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;  // 현재 객체와 비교 객체가 동일하면 true
-        if (!(o instanceof Article that)) return false; // 비교 객체 타입이 Article 이 아니면 false
-        return id != null && id.equals(that.id); // id 가 null 이 아니고 두 객체 id가 같으면 true
+        if (this == o) return true;
+        if (!(o instanceof Article that)) return false;
+
+        if (this.getId() != null) {
+            return Objects.equals(this.getId(), that.getId());
+        } else {
+            return Objects.equals(this.getTitle(), that.getTitle()) &&
+                    Objects.equals(this.getContent(), that.getContent()) &&
+                    Objects.equals(this.getHashtag(), that.getHashtag()) &&
+                    Objects.equals(this.getCreatedAt(), that.getCreatedAt()) &&
+                    Objects.equals(this.getCreatedBy(), that.getCreatedBy()) &&
+                    Objects.equals(this.getModifiedAt(), that.getModifiedAt()) &&
+                    Objects.equals(this.getModifiedBy(), that.getModifiedBy());
+        }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        if (this.getId() != null) {
+            return Objects.hash(getId());
+        } else {
+            return Objects.hash(getTitle(), getContent(), getHashtag(), getCreatedAt(), getCreatedBy(), getModifiedAt(), getModifiedBy());
+        }
     }
 }
