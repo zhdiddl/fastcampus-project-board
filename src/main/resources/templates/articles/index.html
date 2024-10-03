@@ -1,75 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"> <-- 타임 리프 문법 추가로 반복되는 헤더와 푸터 분리 -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>게시판 페이지</title>
+    <title>Root page</title>
 </head>
-
 <body>
-
-<header th:replace="header :: header"></header>
-
-<main>
-    <form> <!-- 검색을 위한 폼(입력 인터페이스) 영역 -->
-        <label for="search-type" hidden>유형</label> <!-- 접근성 향상을 위해 설정하는 레이블 (화면 표시 X) -->
-        <select id="search-type" name="search-type"> <!-- 드롭다운 옵션 메뉴 -->
-            <option>제목</option>
-            <option>본문</option>
-            <option>ID</option>
-            <option>닉네임</option>
-            <option>해시태그</option>
-        </select>
-        <label for="search-value" hidden>검색어</label> <!-- 검색어 입력 필드 레이블 (화면 표시 X) -->
-        <input id="search-value" type="search" placeholder="검색어..." name="search-value"><!-- 검색어 입력 필드 -->
-        <button type="submit">검색</button> <!-- 검색 버튼 -->
-    </form>
-
-    <table> <!-- 게시글 목록을 보여주는 테이블 영역 -->
-        <thead>
-        <tr>
-            <th>제목</th>
-            <th>해시태그</th>
-            <th>작성자</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>첫글</td>
-            <td>#java</td>
-            <td>Jina</td>
-            <td>2022-01-01</td>
-        </tr>
-        <tr>
-            <td>두번째글</td>
-            <td>#spring</td>
-            <td>Jina</td>
-            <td>2022-01-02</td>
-        </tr>
-        <tr>
-            <td>세번째글</td>
-            <td>#java</td>
-            <td>Jina</td>
-            <td>2022-01-03</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <nav> <!-- 페이지 네이게이션 영역 -->
-        <table>
-            <tr>
-                <td>previous</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>next</td>
-            </tr>
-        </table>
-    </nav>
-</main>
-
-<footer th:replace="footer :: footer"></footer>
-
+루트 페이지
 </body>
 </html>
