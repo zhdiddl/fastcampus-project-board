@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"> <-- 타임 리프 문법 추가로 반복되는 헤더와 푸터 분리 -->
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>게시판 페이지</title>
@@ -7,7 +7,7 @@
 
 <body>
 
-<header th:replace="header :: header"></header>
+<header id="header"></header>
 
 <main>
     <form> <!-- 검색을 위한 폼(입력 인터페이스) 영역 -->
@@ -69,7 +69,7 @@
     </nav>
 </main>
 
-<footer th:replace="footer :: footer"></footer>
+<footer id="footer"></footer>
 
 </body>
 </html>
