@@ -21,7 +21,7 @@ import java.util.Objects;
         @Index(columnList = "createdBy")
 })
 @Entity
-public class UserAccount {
+public class UserAccount extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,6 @@ public class UserAccount {
     @Setter private String email;
     @Setter private String nickname;
     @Setter private String memo;
-
-    @CreatedDate @Column(nullable = false) private LocalDateTime createdAt;
-    @CreatedBy @Column(nullable = false) private String createdBy;
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime modifiedAt;
-    @LastModifiedBy @Column(nullable = false) private String modifiedBy;
 
 
     protected UserAccount() {} // JPA 가 엔티티 객체 생성시 사용할 수 있는 최소한의 접근 제어자
