@@ -16,7 +16,7 @@ public class ThymeleafConfig {
             SpringResourceTemplateResolver defaultTemplateResolver, // 기본 템플릿 resolver
             Thymeleaf3Properties thymeleaf3Properties // 사용자 정의 프로퍼티 클래스
     ) {
-        defaultTemplateResolver.setUseDecoupledLogic(thymeleaf3Properties.isDecoupledLogic()); // 사용자 정의에 따라 로직 사용 여부 결정
+        defaultTemplateResolver.setUseDecoupledLogic(thymeleaf3Properties.isDecoupledLogic());
 
         return defaultTemplateResolver; // 설정 완료된 템플릿 resolver 반환
     }
